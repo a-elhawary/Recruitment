@@ -4,11 +4,6 @@
 
 body{
     background-color: #F9F9F9;
-    width:100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
 }
 
 #error{
@@ -21,6 +16,11 @@ body{
 
 .center-container{
     text-align: center;
+    width:90%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
 .logo{
@@ -71,4 +71,10 @@ body{
     border-radius: 8px;
     color:#fff;
     padding:1em;
+}
+
+@media only screen and (min-width: 1000px){
+    .center-container{
+        width:20%;
+    }
 }
