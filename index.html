@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pirates'22| Recruitment</title>
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="center-container">
+            <img class="logo" src="logo.png" alt="logo"/>
+            <h1 class="text">Become a member</h1>
+            <h2 class="subtext">Register now for a chance to join Pirates'22</h2>
+            <span id="error"></span>
+            <span id="submitted"></span>
+            <div class="white-container">
+                <div class="form-element">
+                    <div class="form-label">Name</div>
+                    <input id="name" name="name" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Email</div>
+                    <input id="email" name="email" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Mobile Number</div>
+                    <input id="mobile" name="mobile" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Previous Experience if Found</div>
+                    <input id="experience" name="experience" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Skills (Art, Voice Over, ..etc)</div>
+                    <input id="skills" name="skills" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">First Preference</div>
+                    <select id="first" name="first">
+                        <option value="AC">AC - Academic Comitee</option>
+                        <option value="HR">HR - Human Resources</option>
+                        <option value="QM">QM - Quality Management</option>
+                        <option value="IT">IT - Information Technology</option>
+                        <option value="PR">PR - Public Relations & Marketing</option>
+                        <option value="Advertising">Advertising</option>
+                    </select>
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Second Preference</div>
+                    <select id="second" name="second">
+                        <option value="AC">AC - Academic Comitee</option>
+                        <option value="HR">HR - Human Resources</option>
+                        <option value="QM">QM - Quality Management</option>
+                        <option value="IT">IT - Information Technology</option>
+                        <option value="PR">PR - Public Relations & Marketing</option>
+                        <option value="Advertising">Advertising</option>
+                    </select>
+                </div>
+                <div class="button-container">
+                    <button onclick="sendData()" id="button" class="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function sendData(){
+                var data = {
+                    name:document.getElementById("name").value,
+                    email:document.getElementById("email").value,
+                    mobile:document.getElementById("mobile").value,
+                    experience:document.getElementById("experience").value,
+                    skills:document.getElementById("skills").value,
+                    first:document.getElementById("first").value,
+                    second:document.getElementById("second").value,
+                }
+                if(data.name == "" || data.name == " "){
+                    document.getElementById("error").textContent = "Name Field is Required";
+                    return;
+                }
+                if(data.email == "" || data.email == " "){
+                    document.getElementById("error").textContent = "Email Field is Required";
+                    return;
+                }
+                if(data.mobile == "" || data.mobile == " "){
+                    document.getElementById("error").textContent = "Mobile Field is Required";
+                    return;
+                }
+                if(data.first == data.second){
+                    document.getElementById("error").textContent = "First and Second Preference cannot be the same";
+                    return;
+                }
+                document.getElementById("button").onclick = "";
+                document.getElementById("button").style.backgroundColor = "#D9D9D9";
+                var xhr = new XMLHttpRequest();
+                var url ="https://script.google.com/macros/s/AKfycbzoIsYL2fBe9HaSOMuzjgX6Yq_U3CEfSoGqJF-LCsgrKFRhk3E9sMWAH6rEs4K6CcYTFg/exec";
+                xhr.open("POST",url, true);
+                xhr.setRequestHeader('Content-Type', 'text/plain;charset=utf-8');
+                xhr.send(JSON.stringify(data));
+                document.getElementById("error").textContent="";
+                document.getElementById("submitted").textContent="Your Result has been recorded";
+            }
+        </script>
+    </body>
+</html>
