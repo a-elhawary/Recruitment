@@ -4,9 +4,7 @@
 
 body{
     background-color: #F9F9F9;
-    position:fixed;
     width:100vw;
-    height:100vh;
     display: flex;
     align-items: center;
     justify-content: center;
