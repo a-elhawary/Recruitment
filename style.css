@@ -15,12 +15,8 @@ body{
 }
 
 .center-container{
-    text-align: center;
-    width:75%;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
+    width:70%;
+    margin: 10px auto;
 }
 
 .logo{
@@ -74,8 +70,14 @@ body{
     padding:1em;
 }
 
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 950px){
+
     .center-container{
-        width:20%;
+        text-align: center;
+        width:75%;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
     }
 }
