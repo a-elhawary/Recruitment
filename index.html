@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Pirates'22| Recruitment</title>
+        <title>Pirates'23| Recruitment</title>
         <link rel="stylesheet" type="text/css" href="./style.css"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,18 @@
                 <div class="form-element">
                     <div class="form-label">Mobile Number</div>
                     <input id="mobile" name="mobile" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">University</div>
+                    <input id="uni" name="uni" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Faculty</div>
+                    <input id="faculty" name="faculty" class="form-input" />
+                </div>
+                <div class="form-element">
+                    <div class="form-label">Level</div>
+                    <input id="level" name="level" class="form-input" />
                 </div>
                 <div class="form-element">
                     <div class="form-label">Previous Experience if Found</div>
@@ -69,6 +81,9 @@
                     name:document.getElementById("name").value,
                     email:document.getElementById("email").value,
                     mobile:document.getElementById("mobile").value,
+                    uni:document.getElementById("uni").value,
+                    faculty:document.getElementById("faculty").value,
+                    level:document.getElementById("level").value,
                     experience:document.getElementById("experience").value,
                     skills:document.getElementById("skills").value,
                     first:document.getElementById("first").value,
@@ -86,6 +101,18 @@
                     document.getElementById("error").textContent = "Mobile Field is Required";
                     return;
                 }
+                if(data.uni == "" || data.uni == " "){
+                    document.getElementById("error").textContent = "University Field is Required";
+                    return;
+                }
+                if(data.faculty == "" || data.faculty == " "){
+                    document.getElementById("error").textContent = "Faculty Field is Required";
+                    return;
+                }
+                if(data.level == "" || data.level == " "){
+                    document.getElementById("error").textContent = "Level Field is Required";
+                    return;
+                }
                 if(data.first == data.second){
                     document.getElementById("error").textContent = "First and Second Preference cannot be the same";
                     return;
@@ -93,7 +120,7 @@
                 document.getElementById("button").onclick = "";
                 document.getElementById("button").style.backgroundColor = "#D9D9D9";
                 var xhr = new XMLHttpRequest();
-                var url ="https://script.google.com/macros/s/AKfycbzoIsYL2fBe9HaSOMuzjgX6Yq_U3CEfSoGqJF-LCsgrKFRhk3E9sMWAH6rEs4K6CcYTFg/exec";
+                var url ="https://script.google.com/macros/s/AKfycbyMLWwUI44-lp4_AkcK2Z6zD-ZbX4Bs6EiDnGcHmy98yoAVloW0K5nu6dCoWebXH2qPzw/exec";
                 xhr.open("POST",url, true);
                 xhr.setRequestHeader('Content-Type', 'text/plain;charset=utf-8');
                 xhr.send(JSON.stringify(data));
